@@ -1,5 +1,5 @@
 # MIE-GAT
-Code for 《MIE-GAT: A Multi-perspective Information Enhancement Graph Attention Network for Automated Lung Nodule Diagnosis in CT Images》 Project.
+Code for the paper "MIE-GAT: A Multi-perspective Information Enhancement Graph Attention Network for Automated Lung Nodule Diagnosis in CT Images".
 ## Requirement
 Python 3.9.18
 
@@ -17,6 +17,7 @@ Download and unzip this project: MIE-GAT-master.zip.
 ## Dataset
 Original LIDC-IDRI dataset can be found in the official website: https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI
 
-The LIDP dataset can be found in the paper 《Lidp: A lung image dataset with pathological information for
-lung cancer screening》
+The LIDP dataset can be found in the paper "Lidp: A lung image dataset with pathological information for
+lung cancer screening"
 ## Todos
+* Scripts for models are provided in /models folder.
