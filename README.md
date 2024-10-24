@@ -15,7 +15,7 @@ tensorboardX: https://github.com/lanpa/tensorboard-pytorch
 
 Download and unzip this project: MIE-GAT-master.zip.
 ## Dataset
-Original LIDC-IDRI dataset can be found in the official website: https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI
+Original LIDC-IDRI dataset can be found in the official website: https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254
 
 The LIDP dataset can be found in the paper "Lidp: A lung image dataset with pathological information for
 lung cancer screening"
