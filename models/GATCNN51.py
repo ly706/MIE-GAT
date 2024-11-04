@@ -38,7 +38,6 @@ class GATEmbedding(nn.Module):
             self.add_module('attention_{}'.format(i), attention)
 
         self.out_att1 = GraphAttentionLayer(nhid * nheads, self.emb_size, dropout=dropout, alpha=alpha, concat=False)
-        self.out_att2 = GraphAttentionLayer(self.emb_size, nclass, dropout=dropout, alpha=alpha, concat=False)
 
         self.layer_last = nn.Sequential(
                                         # nn.Linear(in_features=self.emb_size,out_features=self.emb_size*2),
@@ -85,16 +84,10 @@ class GATEmbedding(nn.Module):
         x = F.dropout(x, self.dropout, training=self.training)
         image_feature = F.elu(self.out_att1(x, adj)[0])  # B X N X emb_size
         image_feature = F.dropout(image_feature, self.dropout, training=self.training)
-        # pre = F.elu(self.out_att2(image_feature, adj))  # B X N X nclass
-        # pre = pre[0,:].unsqueeze(0)
-        # pre = pre[:, 0, :].squeeze(1)  # B X nclass
 
         image_feature_second = image_feature[:, 0, :].squeeze(1)  # B X emb_size
 
-        # image_feaure = F.normalize(imaget_feature, p=1, dim=-1)
-
         image_feature_second = self.layer_last(image_feature_second)
-        # image_feature_second = self.layer_last(torch.cat([image_feature_second, input_struct], dim=1))
 
         predction = self.fc(image_feature_second)
 
