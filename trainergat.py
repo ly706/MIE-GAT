@@ -15,8 +15,6 @@ class Trainer(object):
 
         self.arg = arg
         self.config = config
-        self.train_opt = config['train_config']
-        self.eval_opt = config['eval_config']
 
         self.train_writer = SummaryWriter(os.path.join(self.arg.log_dir, 'train_scalar'))
         self.val_writer = SummaryWriter(os.path.join(self.arg.log_dir, 'val_scalar'))
@@ -43,9 +41,9 @@ class Trainer(object):
 
         # set optimizer
         self.optimizer = torch.optim.SGD(params=self.enc_module.parameters(),
-                                         lr=self.train_opt['lr'],
+                                         lr=self.config['lr'],
                                          momentum=0.9,
-                                         weight_decay=self.train_opt['weight_decay'],
+                                         weight_decay=self.config['weight_decay'],
                                          nesterov=False)
 
         # set lr scheduler
@@ -96,7 +94,7 @@ class Trainer(object):
                                                                           metric_train.get_acc()))
 
             # evaluation
-            if self.global_step % self.eval_opt['interval'] == 0:
+            if self.global_step % self.config['interval'] == 0:
                 self.train_writer.add_scalar('Loss', train_loss.avg, self.global_step)
                 self.train_writer.add_scalar('Accuracy', metric_train.get_acc(), self.global_step)
                 is_best = 0
