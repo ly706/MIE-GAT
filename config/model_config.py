@@ -13,3 +13,7 @@ config['dim_num'] = 3
 config['imgNum'] = 32
 config['struct_fea'] = 9
 
+config['lr'] = 1e-3
+config['weight_decay'] = 1e-6
+
+config['interval'] = 1
