@@ -12,6 +12,8 @@ class config:
     # struct_num = 9
     emb_size = 128
 
+    gat_batch_size = 256
+
     # data path
     # LIDP
     path = '/media/data1/LC015Nodule'
