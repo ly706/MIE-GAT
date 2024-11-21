@@ -8,10 +8,6 @@ import torch.nn.functional as F
 import numpy as np
 from models.gatbackbone import SliceEmbeddingImagenet
 
-from models.layers import GraphAttentionLayer
-
-from models.backbone_resnet import BasicBlock
-
 
 # from layers1 import GraphAttentionLayer, UG_GraphAttentionLayer
 def normalize(mx):
