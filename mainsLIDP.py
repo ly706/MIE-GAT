@@ -3,7 +3,7 @@ import datetime
 import pandas
 import xlwt
 
-from utils2 import set_logging_config
+from utils import set_logging_config
 from dataset import GATData
 import os
 import random
